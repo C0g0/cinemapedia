@@ -57,8 +57,10 @@ class _MovieHorizontalListviewState extends State<MovieHorizontalListview> {
             scrollDirection: Axis.horizontal,
             itemCount: widget.movies.length,
             itemBuilder: (context, index) {
-              return _Slide(
-                movie: widget.movies[index],
+              return FadeInRight(
+                child: _Slide(
+                  movie: widget.movies[index],
+                ),
               );
             },
           ))
@@ -138,7 +140,7 @@ class _Slide extends StatelessWidget {
                   style: textStyle.bodyMedium
                       ?.copyWith(color: Colors.yellow.shade800),
                 ),
-                Spacer(),
+                const Spacer(),
                 Text(
                   HumanFormats.number(movie.popularity),
                   style: textStyle.bodySmall,
@@ -157,7 +159,6 @@ class _Title extends StatelessWidget {
   final String? subtitle;
 
   const _Title({
-    super.key,
     this.title,
     this.subtitle,
   });
